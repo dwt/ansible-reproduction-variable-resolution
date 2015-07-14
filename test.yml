@@ -1,0 +1,14 @@
+---
+
+- hosts: host1
+  remote_user: root
+  gather_facts: False
+  vars:
+    restore_from: host2
+
+  tasks:
+    - name: This should show "from host 2"
+      debug: msg="{{ hostvars[restore_from].second_level }}"
+    
+    - name: This should show "from host 2" but doesn't
+      debug: msg="{{ hostvars[restore_from].first_level }}"

@@ -1,0 +1,4 @@
+---
+
+first_level: "{{ second_level }}"
+second_level: from host 1
